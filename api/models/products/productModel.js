@@ -69,7 +69,7 @@ exports.createProduct = (req, res) => {
                 res.status(201).json({
                     statusCode: 201,
                     status: true,
-                    message: 'Pruduct created successfully'
+                    message: 'Product created successfully'
                 })
             })
             .catch(err => {
@@ -139,14 +139,16 @@ exports.deleteProduct = (req, res) => {
                 res.status(200).json({
                     statusCode: 200,
                     status: true,
-                    message: 'Product deleted'
+                    message: 'Product deleted',
+                    
                 })
             })
-            .catch(() => {
+            .catch((err) => {
                 res.status(500).json({
                     statusCode: 500,
                     status: false,
-                    message: 'Failed to delete product'
+                    message: 'Failed to delete product',
+                    err
                 })
             })
         } else {
