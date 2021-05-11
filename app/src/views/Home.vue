@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <h1>Home</h1>
+  <div class="erbjudande">
+    <h1 class="mt-3">Erbjudanden</h1>
+    <h3>Tyvärr har vi inga erbjudanden för tillfället</h3>
   </div>
 </template>
 
@@ -8,9 +9,15 @@
 
 
 export default {
-  name: 'Home',
+  name: 'Erbjudanden',
   components: {
     
   }
 }
 </script>
+
+<style scoped>
+.erbjudande {
+  min-height: 835px;
+}
+</style>

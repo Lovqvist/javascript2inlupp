@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-dark ">
+    <nav class="navbar navbar-expand-lg navbar-light border-bottom border-dark ">
         <div class="container">
             <button
             class="navbar-toggler"
@@ -14,44 +14,99 @@
             </button>
             
             <router-link class="navbar-brand" to="/"><span>MySHOP</span></router-link>
-            <div class="icon">
-                <a class="text-dark" href="#">
-                    <i class="fas fa-user"></i>
-                </a>
-                <a class="mx-2 text-dark" href="#">
-                    <i class="fas fa-shopping-cart"></i>
-                </a>
-            </div>
             
+            
+                <!-- Dropdown -->
+                <div class=" navbar dropdown icon">
+                    <a
+                    class="nav-link"
+                    href="#"
+                    id="navbarDropdownMenuLink"
+                    role="button"
+                    data-mdb-toggle="dropdown"
+                    aria-expanded="false"
+                    >
+                        <i class="text-dark fas fa-shopping-cart"></i>
+                            <span v-show="cartItemCount" class="badge rounded-pill badge-notification bg-light text-dark">{{ cartItemCount }}</span>
+
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shopping-cart" aria-labelledby="navbarDropdownMenuLink">
+                        <Shopping-cart />
+                    </ul>
+                    <a
+                    class="text-dark nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdownMenuLink"
+                    role="button"
+                    data-mdb-toggle="dropdown"
+                    aria-expanded="false"
+                    >
+                        <i class="text-dark fas fa-user"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                        
+                        <li><router-link class="dropdown-item" to="/login">Login</router-link></li>
+                        <li><a class="dropdown-item" href="#">Historik</a></li>
+                    </ul>
+                </div>
+                
+            
+               
+
             <div class="mx-3 collapse navbar-collapse" id="navbarNavAltMarkup">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <router-link class="nav-link active" to="/">Home</router-link>
+                        <router-link class="nav-link active" to="/">Erbjudanden</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link active" to="/products">Products</router-link>
+                        <router-link class="nav-link active" to="/products">Produkter</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link active" to="/about">About Us</router-link>
+                        <router-link class="nav-link active" to="/about">Om oss</router-link>
                     </li>
                 </ul>
             </div>
+
+           
+
+            
             
         </div>
     </nav>
 </template>
 
 <script>
-export default {
+import { mapGetters } from 'vuex'
+import ShoppingCart from '../shoppingCart/ShoppingCart.vue'
 
+export default {
+name: 'Navbar',
+components: { 
+    ShoppingCart 
+},
+computed: {
+    ...mapGetters(['cartItemCount'])
+  }    
+    
 }
 </script>
  
 <style scoped>
+nav {
+    background-color:  rgba(182, 142, 173, 0.788);
+}
     
     .navbar-brand {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         font-size: 28px;
+    }
+    .icon {
+        border: none;
+        box-shadow: none;
+    }
+
+    .shopping-cart {
+        min-width: 340px;
     }
 
 @media (min-width: 992px) {
@@ -65,10 +120,11 @@ export default {
         order:1;
     }
     .icon {
-        order:2;
+        order:2;   
     }
     
 }
+
 
 
 </style>
