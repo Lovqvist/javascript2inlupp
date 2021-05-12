@@ -1,7 +1,7 @@
 <template>
   <div>
     <Navbar />
-    <div class="container">
+    <div class="container, height">
       <router-view/>
     </div>
     <Footer />
@@ -30,4 +30,15 @@ export default {
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
+.btn-grey {
+  background-color: lightgray;
+}
+
+
+
+.height{
+  min-height: 835px;
+}
+
 </style>

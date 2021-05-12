@@ -3,16 +3,16 @@
         <div class="py-2 d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
                 <img :src="item.product.image" alt="" class="img-fluid image-width">
-                <div><strong>{{ item.product.name }}</strong>
+                <div class="m-2"><strong>{{ item.product.name }}</strong>
                     <div><small>{{ item.product.price }}kr x {{ item.quantity }}st</small></div>
                 </div>
             </div>
             <div >
                 <div class="btn-group btn-group-sm me-2" role="group">
-                    <button class="btn btn-dark" @click.stop="item.quantity -=1">-</button>
-                    <button class="btn btn-dark" @click.stop="item.quantity +=1">+</button>
+                    <button class="btn btn-grey" @click.stop="item.quantity -=1">-</button>
+                    <button class="btn btn-grey" @click.stop="item.quantity +=1">+</button>
                 </div>
-                    <button class="btn btn-danger btn-sm" @click.stop="item.quantity = 0"><i class="far fa-trash-alt"></i></button>
+                    <button class="btn text-danger btn-sm" @click.stop="item.quantity = 0"><i class="far fa-trash-alt"></i></button>
             </div>
         </div>
             <div class="dropdown-divider"></div>
@@ -34,6 +34,6 @@ export default {
 
 <style scoped>
 .image-width {
-  width: 90px;
+  width: 70px;
 }
 </style>

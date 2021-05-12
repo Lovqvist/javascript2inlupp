@@ -1,5 +1,5 @@
 <template>
-  <h1>User settings</h1>
+  <div>orders</div>
 </template>
 
 <script>

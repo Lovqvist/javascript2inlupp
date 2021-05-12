@@ -8,14 +8,14 @@
           </div>
 
           <div class="mb-4">
-              <label for="password" class="form-label ">Password</label>
+              <label for="password" class="form-label ">Lösenord</label>
               <input type="password" id="password" class="form-control" v-model="password">
           </div>
 
-          <button class="btn btn-primary btn-block">logg in</button>
+          <router-link to="/products" class="btn btn-grey btn-block">Logga in</router-link>
 
           <div class="text-center">
-              <small>Not a member? <router-link to="/register">Register</router-link> </small>
+              <small>Saknar du konto? <router-link to="/register" class="register-link">Registrera</router-link> </small>
           </div>
       </form>
   </div>
@@ -39,13 +39,22 @@ export default {
                     password: this.password
                 }
 
+                // let route = this.$route.query.redirect
+                
                 this.login(user)
+                console.log(user)
             }
         }
     }
 }
 </script>
 
-<style>
+<style scoped>
+
+.register-link {
+    color: rgba(182, 142, 173, 0.788);
+    text-decoration: bold;
+    
+}
 
 </style>

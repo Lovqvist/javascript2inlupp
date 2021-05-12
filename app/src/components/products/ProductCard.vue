@@ -1,6 +1,6 @@
 <template>
     <div class="col">
-        <div class="card p-3">
+        <div class="card p-3 my-3">
             <img :src="product.image" alt="..." class="">
             <div class="card-body">
                 <h5 class="card-title">{{ product.name }}</h5>
@@ -9,7 +9,7 @@
                         <h4 class="my-auto">{{ product.price }} kr</h4>    
                     </div> 
                     <div class="d-flex justify-content-center">  
-                        <router-link :to="{ name: 'ProductDetails', params: { id: product._id} }" type="button" class="btn btn-primary">Visa Produkt</router-link>
+                        <router-link :to="{ name: 'ProductDetails', params: { id: product._id} }" type="button" class="btn btn-grey">Visa Produkt</router-link>
                     </div>
             </div>
         </div>

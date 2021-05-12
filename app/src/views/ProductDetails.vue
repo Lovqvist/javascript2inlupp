@@ -16,11 +16,14 @@
                 <p> {{ product.desc }}</p>
                 <div class="input-group m-auto justify-content-center justify-content-lg-start align-items-center">
                   <input type="number" class="text-center form-control" min="1" v-model="quantity" aria-label="Quantity" aria-describedby="button-addon2">
-                  <button class="btn btn-basket" type="button" @click="addProductToCart({ product, quantity })"><i class="text-dark fas fa-shopping-cart"></i> Lägg i varukorgen</button>
+                  <button class="btn" type="button" @click="addProductToCart({ product, quantity })"><i class="text-dark fas fa-shopping-cart"></i> Lägg i varukorgen</button>
                 </div>
               </div>
               
             </div>
+            
+                <router-link to="/products" class="btn" data-abc="true"> <i class="fa fa-chevron-left"></i> Tillbaka</router-link>
+            
           </section>
       </div>
       <div v-else>

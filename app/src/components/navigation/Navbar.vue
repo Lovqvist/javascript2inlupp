@@ -43,10 +43,10 @@
                     >
                         <i class="text-dark fas fa-user"></i>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                    <ul class="dropdown-menu dropdown-menu-end border border-4 rounded" aria-labelledby="navbarDropdownMenuLink">
                         
-                        <li><router-link class="dropdown-item" to="/login">Login</router-link></li>
-                        <li><a class="dropdown-item" href="#">Historik</a></li>
+                        <li v-if="!loggedIn"><router-link class="dropdown-item" to="/login">Login</router-link></li>
+                        <li v-if="loggedIn"><router-link class="dropdown-item" to="/usersettings">User settings</router-link></li>
                     </ul>
                 </div>
                 
@@ -85,7 +85,7 @@ components: {
     ShoppingCart 
 },
 computed: {
-    ...mapGetters(['cartItemCount'])
+    ...mapGetters(['cartItemCount', 'loggedIn'])
   }    
     
 }

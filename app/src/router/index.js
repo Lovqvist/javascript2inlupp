@@ -6,6 +6,9 @@ import ProductDetails from '../views/ProductDetails.vue'
 import CheckOut from '../views/Checkout.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
+import Orders from '../views/Orders.vue'
+import OrderConfirm from '../views/OrderConfirm.vue'
+import store from '../store'
 
 Vue.use(VueRouter)
 
@@ -29,6 +32,18 @@ const routes = [
     path: '/products',
     name: 'Products',
     component: Products
+  },
+  {
+    path: '/user',
+    name: 'Orders',
+    component: Orders,
+    meta: { authorize: true }
+  },
+  {
+    path: '/checkout/confirm',
+    name: 'OrderConfirm',
+    component: OrderConfirm,
+    meta: { authorize: true }
   },
   {
     path: '/products/details/:id',
@@ -56,6 +71,21 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+
+router.beforeEach((to, from, next) => {
+
+  const { authorize } = to.meta
+  const loggedIn = store.getters.loggedIn
+  
+  if(authorize) {
+    if(!loggedIn) {
+      next({ path: '/login', query: {redirect: to.fullPath}})
+    } else {
+      next()
+    }
+  }
+  next()
 })
 
 export default router
