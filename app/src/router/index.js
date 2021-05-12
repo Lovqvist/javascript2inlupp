@@ -6,7 +6,6 @@ import ProductDetails from '../views/ProductDetails.vue'
 import CheckOut from '../views/Checkout.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
-import Orders from '../views/Orders.vue'
 import OrderConfirm from '../views/OrderConfirm.vue'
 import store from '../store'
 
@@ -32,12 +31,6 @@ const routes = [
     path: '/products',
     name: 'Products',
     component: Products
-  },
-  {
-    path: '/user',
-    name: 'Orders',
-    component: Orders,
-    meta: { authorize: true }
   },
   {
     path: '/checkout/confirm',

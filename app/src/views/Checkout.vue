@@ -4,7 +4,8 @@
         <h1 class="card-header text-center my-4"> Din beställning </h1>
         <div class="card-body ">
             
-            <shopping-cart-product v-for="item in shoppingCart" :key="item.product.id" :item="item"/>
+            <Shopping-cart-product v-for="item in shoppingCart" :key="item.product.id" :item="item"/>
+            
             <div class="d-flex justify-content-end">
                 <h5 class="mx-5">Antal produkter: </h5>
                 <div class="d-flex justify-content-end">
@@ -24,11 +25,8 @@
                 <div>
                     <router-link to="/products" class="btn" data-abc="true"> <i class="fa fa-chevron-left"></i> Fortsätt handla</router-link>
                 </div>
-                <div v-if="loggedIn">
-                    <router-link to="/checkout/confirm" class="btn btn-grey" data-abc="true" @click="orders">  Lägg order </router-link>
-                </div>
-                <div v-else>
-                    <router-link to="/checkout/confirm" class="btn btn-grey" data-abc="true" @click="orders">  Logga in för att lägga order </router-link>
+                <div >
+                    <button class="btn btn-grey"  @click="orders">  Lägg order </button>
                 </div>
             </div>
         </div>
@@ -43,7 +41,7 @@ import ShoppingCartProduct from '../components/shoppingCart/ShoppingCartProduct.
 export default {
   components: { ShoppingCartProduct },
   computed: {
-    ...mapGetters(['shoppingCart', 'shoppingCartTotal', 'cartItemCount', 'user', 'loggedIn'])
+    ...mapGetters(['shoppingCart', 'shoppingCartTotal', 'cartItemCount', 'user'])
   },
   methods: {
       ...mapActions(['confirmOrder']),

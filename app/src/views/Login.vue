@@ -12,7 +12,7 @@
               <input type="password" id="password" class="form-control" v-model="password">
           </div>
 
-          <router-link to="/products" class="btn btn-grey btn-block">Logga in</router-link>
+          <button class="btn btn-grey btn-block">Logga in</button>
 
           <div class="text-center">
               <small>Saknar du konto? <router-link to="/register" class="register-link">Registrera</router-link> </small>
