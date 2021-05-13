@@ -1,8 +1,9 @@
 <template>
   <div>
-      <p>Produkt: {{ product.product.name }}</p>
+      <p>Artiklar: {{ product.product.name }}</p>
       <p>Antal: {{product.quantity }}</p>
       <p>Pris: {{product.product.price}}</p>
+      <hr>
   </div>
 </template>
 

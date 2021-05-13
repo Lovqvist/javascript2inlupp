@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-5 row row-cols-3 g-4">
+  <div class="mt-5 row row-cols-1 row-cols-md-2 g-4">
       <Order-card v-for="order in orders" :key="order._id" :order="order" />
   </div>
 </template>
