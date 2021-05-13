@@ -10,7 +10,8 @@ import { mapActions } from 'vuex'
 
 export default {
   name: 'Products',
-  components: { ProductCardDeck 
+  components: { 
+    ProductCardDeck 
   },
   methods: {
     ...mapActions(['getProducts'])

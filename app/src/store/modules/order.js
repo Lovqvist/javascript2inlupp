@@ -27,6 +27,7 @@ export default {
         getOrders: async ({commit}, email) => {
             const res = await axios.get('http://localhost:8888/api/order/' + email)
             commit('SET_ORDERS', res.data)
+            console.log(res)
         }
         
     }

@@ -6,7 +6,8 @@ import ProductDetails from '../views/ProductDetails.vue'
 import CheckOut from '../views/Checkout.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
-import OrderConfirm from '../views/OrderConfirm.vue'
+import OrderHistory from '../views/OrderHistorik.vue'
+
 import store from '../store'
 
 Vue.use(VueRouter)
@@ -33,10 +34,9 @@ const routes = [
     component: Products
   },
   {
-    path: '/checkout/confirm',
-    name: 'OrderConfirm',
-    component: OrderConfirm,
-    meta: { authorize: true }
+    path: '/orderhistory',
+    name: 'OrderHistory',
+    component: OrderHistory
   },
   {
     path: '/products/details/:id',

@@ -46,7 +46,7 @@
                     <ul class="dropdown-menu dropdown-menu-end border border-4 rounded" aria-labelledby="navbarDropdownMenuLink">
                         
                         <li v-if="!loggedIn"><router-link class="dropdown-item" to="/login">Login</router-link></li>
-                        <li v-if="loggedIn"><router-link class="dropdown-item" to="/usersettings">User settings</router-link></li>
+                        <li v-if="loggedIn"><router-link class="dropdown-item" to="/orderhistory">Order historik</router-link></li>
                     </ul>
                 </div>
                 
