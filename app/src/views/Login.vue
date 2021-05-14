@@ -5,13 +5,14 @@
           <div class="mb-4">
               <label for="email" class="form-label ">Email</label>
               <input type="email" id="email" class="form-control" v-model="email">
+                
           </div>
 
-          <div class="mb-4">
+          <div class="mb-3">
               <label for="password" class="form-label ">Lösenord</label>
               <input type="password" id="password" class="form-control" v-model="password">
           </div>
-
+            <h6 v-if="error" class="text-danger">Emailadress eller lösenord är felaktig!</h6>
           <button class="btn btn-grey btn-block">Logga in</button>
 
           <div class="text-center">
@@ -22,13 +23,16 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
     data() {
         return {
             email: '',
             password: ''
         }
+    },
+    computed: {
+    ...mapGetters(['error']),
     },
     methods: {
         ...mapActions(['login']),

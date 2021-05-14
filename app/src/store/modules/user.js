@@ -4,11 +4,13 @@ import axios from 'axios'
 export default {
     state: {
         user: null,
-        loggedIn: false
+        loggedIn: false,
+        error: false
     },
     getters: {
         loggedIn: state => state.loggedIn,
-        user: state => state.user
+        user: state => state.user,
+        error: state => state.error
     },
     mutations: {
         LOGIN_USER: (state, user ) => {
@@ -17,6 +19,9 @@ export default {
         },
         LOGOUT_USER: state => {
             state.loggedIn = false
+        },
+        ERROR_LOGIN: state => {
+            state.error = true
         }
     },
     actions: {
@@ -39,8 +44,11 @@ export default {
                     // } else {
                     //     router.push('/')
                     // }
-                }
+                } 
             })
+            .catch(
+                commit('ERROR_LOGIN')
+            )
         },
         logout: ({commit}) => {
             commit('LOGOUT_USER')
