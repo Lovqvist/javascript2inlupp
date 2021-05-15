@@ -26,7 +26,7 @@
                     <router-link to="/products" class="btn" data-abc="true"> <i class="fa fa-chevron-left"></i> Fortsätt handla</router-link>
                 </div>
                 <div >
-                    <button v-if="shoppingCart.length < 1" class="btn btn-grey" disabled @click="orders">Kundvagn tom </button>
+                    <button v-if="cartItemCount < 1" class="btn btn-grey" disabled @click="orders">Kundvagn tom </button>
                     <button v-else class="btn btn-grey"  @click="orders">  Lägg order </button>
                 </div>
             </div>

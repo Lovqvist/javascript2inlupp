@@ -56,9 +56,6 @@
             <div class="mx-3 collapse navbar-collapse" id="navbarNavAltMarkup">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <router-link class="nav-link active" to="/">Erbjudanden</router-link>
-                    </li>
-                    <li class="nav-item">
                         <router-link class="nav-link active" to="/products">Produkter</router-link>
                     </li>
                     <li class="nav-item">
