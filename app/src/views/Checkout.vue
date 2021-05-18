@@ -46,7 +46,7 @@ export default {
     ...mapGetters(['shoppingCart', 'shoppingCartTotal', 'cartItemCount', 'user', 'loggedIn'])
   },
   methods: {
-      ...mapActions(['confirmOrder']),
+      ...mapActions(['confirmOrder', 'cleanCartList']),
       orders(){
           let order1 = {
               email: this.user,
@@ -55,6 +55,8 @@ export default {
           }
           console.log(order1)
           this.confirmOrder(order1)
+          setTimeout(this.cleanCartList, 2000)
+          
       }
   }
 }

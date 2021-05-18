@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+
 export default {
     state: {
         orders: [],
@@ -14,8 +15,7 @@ export default {
             state.orders = orders
         },
         GET_ORDERS: (state, orders) => {
-            state.orders = orders
-            
+            state.orders = orders   
         }
     },
     actions: {

@@ -31,6 +31,9 @@ export default {
             } 
             
             state.cart.push({ product, quantity })   
+        },
+        CLEAN_CART: state => {
+            state.cart = []
         }
     },
     actions: {
@@ -40,6 +43,9 @@ export default {
                 quantity: Number(quantity)
             }
             commit('ADD_TO_CART', item)
+        },
+        cleanCartList: ({commit}) => {
+            commit('CLEAN_CART')
         }
 
     }

@@ -25,15 +25,16 @@ export default {
         }
     },
     actions: {
-        register: async ({ dispatch }, {_user, route}) => {
+        register: async ({ dispatch }, _user) => {
             await axios.post('http://localhost:8888/api/users/register', _user)
+    
             const user = {
                 email: _user.email,
                 password: _user.password
             }
-            dispatch('login', {user, route})
+            dispatch('login', user)
         },
-        login: ({ commit }, {user, route} )=> {
+        login: ({ commit }, user )=> {
             axios.post('http://localhost:8888/api/users/login', user)
             
             .then(res => {
@@ -41,11 +42,7 @@ export default {
                     
                     commit('LOGIN_USER', user.email)
                     
-                    if(route){
-                        router.push(route)
-                    } else {
-                        router.push('/')
-                    }
+                    router.push('/')
                 } 
                 
 

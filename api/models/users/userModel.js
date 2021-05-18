@@ -68,7 +68,7 @@ exports.loginUser = (req, res) => {
                 return res.status(404).json({
                     statusCode: 404,
                     status: false,
-                    message: 'Imcorrect email or password'
+                    message: 'Incorrect email or password'
                 })
             }
 

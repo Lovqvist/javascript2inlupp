@@ -7,14 +7,14 @@
               <div class="col">
                     <div class="mb-4">
                         <label for="firstName" class="form-label ">Förnamn</label>
-                        <input type="firstName" id="firstName" class="form-control" v-model="firstName">
+                        <input type="firstName" id="firstName" class="form-control" v-model="user.firstName">
                     </div>
               </div>
 
               <div class="col">
                     <div class="mb-4">
                         <label for="lastName" class="form-label ">Efternamn</label>
-                        <input type="lastName" id="lastName" class="form-control" v-model="lastName">
+                        <input type="lastName" id="lastName" class="form-control" v-model="user.lastName">
                     </div>
               </div>
           </div>
@@ -22,12 +22,12 @@
 
           <div class="mb-4">
               <label for="email" class="form-label ">Email</label>
-              <input type="email" id="email" class="form-control" v-model="email">
+              <input type="email" id="email" class="form-control" v-model="user.email">
           </div>
 
           <div class="mb-4">
               <label for="password" class="form-label ">Lösenord</label>
-              <input type="password" id="password" class="form-control" v-model="password">
+              <input type="password" id="password" class="form-control" v-model="user.password">
           </div>
 
           <button class="btn btn-primary btn-block">Skapa konto</button>
@@ -42,31 +42,25 @@
 <script>
 import { mapActions } from 'vuex'
 export default {
-    data() {
-        return {
-            firstName: '',
-            lastName:'',
-            email: '',
-            password: '' 
-        }
-    },
-    methods: {
-        ...mapActions(['register']),
-        onSub() {
-            if(this.firstName !== '' && this.lastName !== '' && this.email !== '' && this.password !== '' ){
-                 let user = {
-                     firstName: this.firstName,
-                     lastName: this.lastName,
-                     email: this.email,
-                     password: this.password
-                 }
-                 let route = this.$route.query.redirect
+  data() {
+    return {
+      user: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: ''
+      }
 
-                 this.register({user, route})
-                 console.log(user)
-            }
-        }
     }
+  },
+  methods: {
+    ...mapActions(['register']),
+    onSub() {
+      if(this.user.firstName !== '' && this.user.lastName !== '' && this.user.email !== '' && this.user.password !== '') {
+        this.register(this.user)
+      }
+    }
+  }
 }
 </script>
 
