@@ -6,6 +6,7 @@ import ProductDetails from '../views/ProductDetails.vue'
 import CheckOut from '../views/Checkout.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
+import OrderConfirm from '../views/OrderConfirm.vue'
 import OrderHistory from '../views/OrderHistorik.vue'
 
 import store from '../store'
@@ -29,14 +30,16 @@ const routes = [
     component: Register
   },
   {
-    path: '/products',
-    name: 'Products',
-    component: Products
+    path: '/orderconfirm',
+    name: 'OrderConfirm',
+    component: OrderConfirm,
+    meta: { authorize: true}
   },
   {
     path: '/orderhistory',
     name: 'OrderHistory',
-    component: OrderHistory
+    component: OrderHistory,
+    meta: { authorize: true}
   },
   {
     path: '/products/details/:id',
@@ -73,7 +76,7 @@ router.beforeEach((to, from, next) => {
   
   if(authorize) {
     if(!loggedIn) {
-      next({ path: '/login', query: {redirect: to.fullPath}})
+      next({ path: '/login', query: { redirect: to.fullPath } })
     } else {
       next()
     }

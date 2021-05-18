@@ -30,8 +30,7 @@ export default {
                 return
             } 
             
-            state.cart.push({ product, quantity })
-            
+            state.cart.push({ product, quantity })   
         }
     },
     actions: {
@@ -42,5 +41,6 @@ export default {
             }
             commit('ADD_TO_CART', item)
         }
+
     }
 }

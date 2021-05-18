@@ -26,8 +26,9 @@
                     <router-link to="/products" class="btn" data-abc="true"> <i class="fa fa-chevron-left"></i> Fortsätt handla</router-link>
                 </div>
                 <div >
-                    <button v-if="cartItemCount < 1" class="btn btn-grey" disabled @click="orders">Kundvagn tom </button>
-                    <button v-else class="btn btn-grey"  @click="orders">  Lägg order </button>
+                    <button v-if="cartItemCount < 1" class="btn btn-grey" disabled>Kundvagn tom </button>
+                    <button v-else-if="!loggedIn" class="btn btn-grey" disabled >Logga in för att lägga order</button>
+                    <router-link to="/orderconfirm" v-else class="btn btn-grey" v-on:click.native="orders" >  Lägg order </router-link>
                 </div>
             </div>
         </div>
@@ -42,7 +43,7 @@ import ShoppingCartProduct from '../components/shoppingCart/ShoppingCartProduct.
 export default {
   components: { ShoppingCartProduct },
   computed: {
-    ...mapGetters(['shoppingCart', 'shoppingCartTotal', 'cartItemCount', 'user'])
+    ...mapGetters(['shoppingCart', 'shoppingCartTotal', 'cartItemCount', 'user', 'loggedIn'])
   },
   methods: {
       ...mapActions(['confirmOrder']),
@@ -52,6 +53,7 @@ export default {
               list: this.shoppingCart,
               price: this.shoppingCartTotal
           }
+          console.log(order1)
           this.confirmOrder(order1)
       }
   }

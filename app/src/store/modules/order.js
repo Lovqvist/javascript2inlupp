@@ -15,6 +15,7 @@ export default {
         },
         GET_ORDERS: (state, orders) => {
             state.orders = orders
+            
         }
     },
     actions: {
@@ -22,12 +23,12 @@ export default {
             axios.post('http://localhost:8888/api/order/', orders).then((res) => {
                 commit('GET_ORDERS', res.data)
             })
-            console.log(orders)
+            // console.log(orders)
         },
         getOrders: async ({commit}, email) => {
             const res = await axios.get('http://localhost:8888/api/order/' + email)
             commit('SET_ORDERS', res.data)
-            console.log(res)
+            // console.log(res)
         }
         
     }

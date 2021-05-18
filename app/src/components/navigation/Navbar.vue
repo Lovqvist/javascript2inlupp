@@ -56,7 +56,7 @@
             <div class="mx-3 collapse navbar-collapse" id="navbarNavAltMarkup">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <router-link class="nav-link active" to="/products">Produkter</router-link>
+                        <router-link class="nav-link active" to="/">Produkter</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link active" to="/about">Om oss</router-link>
@@ -83,7 +83,7 @@ components: {
 },
 computed: {
     ...mapGetters(['cartItemCount', 'loggedIn'])
-  }    
+}   
     
 }
 </script>

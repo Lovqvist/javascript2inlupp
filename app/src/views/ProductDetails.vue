@@ -22,7 +22,7 @@
               
             </div>
             
-                <router-link to="/products" class="btn" data-abc="true"> <i class="fa fa-chevron-left"></i> Tillbaka</router-link>
+                <router-link to="/" class="btn mt-2" data-abc="true"> <i class="fa fa-chevron-left"></i> Tillbaka</router-link>
             
           </section>
       </div>

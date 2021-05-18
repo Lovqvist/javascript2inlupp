@@ -1,5 +1,5 @@
 import axios from 'axios'
-// import router from '../../router'
+import router from '../../router'
 
 export default {
     state: {
@@ -25,30 +25,32 @@ export default {
         }
     },
     actions: {
-        register: async ({ dispatch }, _user) => {
+        register: async ({ dispatch }, {_user, route}) => {
             await axios.post('http://localhost:8888/api/users/register', _user)
             const user = {
                 email: _user.email,
                 password: _user.password
             }
-            dispatch('login', user)
+            dispatch('login', {user, route})
         },
-        login: ({ commit }, user )=> {
+        login: ({ commit }, {user, route} )=> {
             axios.post('http://localhost:8888/api/users/login', user)
+            
             .then(res => {
                 if(res.status === 200) {
+                    
                     commit('LOGIN_USER', user.email)
-
-                    // if(route){
-                    //     router.push(route)
-                    // } else {
-                    //     router.push('/')
-                    // }
+                    
+                    if(route){
+                        router.push(route)
+                    } else {
+                        router.push('/')
+                    }
                 } 
+                
+
             })
-            .catch(
-                commit('ERROR_LOGIN')
-            )
+            
         },
         logout: ({commit}) => {
             commit('LOGOUT_USER')
