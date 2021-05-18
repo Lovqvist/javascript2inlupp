@@ -40,13 +40,14 @@
                     role="button"
                     data-mdb-toggle="dropdown"
                     aria-expanded="false"
-                    >
+                    >   
                         <i class="text-dark fas fa-user"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end border border-4 rounded" aria-labelledby="navbarDropdownMenuLink">
                         
                         <li v-if="!loggedIn"><router-link class="dropdown-item" to="/login">Login</router-link></li>
                         <li v-if="loggedIn"><router-link class="dropdown-item" to="/orderhistory">Order historik</router-link></li>
+                        <li v-if="loggedIn"><router-link class="dropdown-item" to="/" @click="logout()">Logga ut</router-link></li>
                     </ul>
                 </div>
                 
@@ -73,13 +74,16 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import ShoppingCart from '../shoppingCart/ShoppingCart.vue'
 
 export default {
 name: 'Navbar',
 components: { 
     ShoppingCart 
+},
+methods: {
+    ...mapActions(['logout'])
 },
 computed: {
     ...mapGetters(['cartItemCount', 'loggedIn'])

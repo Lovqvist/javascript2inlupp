@@ -45,6 +45,7 @@ export default {
             commit('ADD_TO_CART', item)
         },
         cleanCartList: ({commit}) => {
+            console.log(commit)
             commit('CLEAN_CART')
         }
 

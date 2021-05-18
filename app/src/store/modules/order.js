@@ -21,12 +21,15 @@ export default {
     actions: {
         confirmOrder: ({commit}, orders) => {
             axios.post('http://localhost:8888/api/order/', orders).then((res) => {
-                commit('GET_ORDERS', res.data)
+                if(res.status === 201){
+                    commit('GET_ORDERS', res.data)
+                }
             })
             // console.log(orders)
         },
         getOrders: async ({commit}, email) => {
             const res = await axios.get('http://localhost:8888/api/order/' + email)
+    
             commit('SET_ORDERS', res.data)
             // console.log(res)
         }
