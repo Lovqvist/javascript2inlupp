@@ -12,7 +12,7 @@
               <label for="password" class="form-label ">Lösenord</label>
               <input type="password" id="password" class="form-control" v-model="password">
           </div>
-            <!-- <h6 class="text-danger">Emailadress eller lösenord är felaktig!</h6> -->
+            <h6 class="text-danger" v-if="error">{{ error }}</h6>
           <button class="btn btn-grey btn-block">Logga in</button>
 
           <div class="text-center">
@@ -23,13 +23,16 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 export default {
     data() {
         return {
             email: '',
             password: ''
         }
+    },
+    computed: {
+        ...mapGetters(['error'])
     },
     methods: {
         ...mapActions(['login']),

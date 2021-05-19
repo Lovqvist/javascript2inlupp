@@ -4,11 +4,14 @@ import router from  '../../router'
 export default {
     state:{
         user: null,
-        loggedIn: false
+        loggedIn: false,
+        error: null
+        
     },
     getters: {
         loggedIn: state => state.loggedIn,
-        user: state => state.user
+        user: state => state.user,
+        error: state => state.error
     },
     mutations: {
         LOGIN_USER: (state, user) => {
@@ -17,6 +20,9 @@ export default {
         },
         LOGOUT_USER: state => {
             state.loggedIn = false
+        },
+        SET_ERROR: (state, msg) => {
+            state.error = msg
         }
     },
     actions: {
@@ -33,9 +39,14 @@ export default {
             .then(res =>{
                 if(res.status === 200){
                     commit('LOGIN_USER', user.email)
+                    commit('SET_ERROR', null)
                     router.push('/')
-                }
+                } 
             })
+            .catch(() => {
+                commit('SET_ERROR', 'Fel lösenord eller emailadress')
+            })
+            
             
         },
         logout: ({commit}) => {

@@ -6,6 +6,7 @@ import ProductDetails from '../views/ProductDetails.vue'
 import CheckOut from '../views/Checkout.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
+import Error from '../views/Error.vue'
 import OrderConfirm from '../views/OrderConfirm.vue'
 import OrderHistory from '../views/OrderHistorik.vue'
 
@@ -28,6 +29,11 @@ const routes = [
     path: '/register',
     name: 'Register',
     component: Register
+  },
+  {
+    path: '/error',
+    name: 'Error',
+    component: Error
   },
   {
     path: '/orderconfirm',

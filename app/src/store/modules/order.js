@@ -1,4 +1,5 @@
 import axios from 'axios'
+import router from  '../../router'
 
 
 export default {
@@ -20,13 +21,17 @@ export default {
     },
     actions: {
         confirmOrder: ({commit}, orders) => {
-            axios.post('http://localhost:8888/api/order/', orders).then((res) => {
+            axios.post('http://localhost:8888/api/order/', orders)
+            .then((res) => {
+                console.log(res)
                 if(res.status === 201){
                     commit('GET_ORDERS', res.data)
-                }
-            })
+                    router.push('/orderconfirm')
+                } 
+            }
+            
             // console.log(orders)
-        },
+            )},
         getOrders: async ({commit}, email) => {
             const res = await axios.get('http://localhost:8888/api/order/' + email)
     

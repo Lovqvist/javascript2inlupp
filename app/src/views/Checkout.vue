@@ -28,7 +28,7 @@
                 <div >
                     <button v-if="cartItemCount < 1" class="btn btn-grey" disabled>Kundvagn tom </button>
                     <button v-else-if="!loggedIn" class="btn btn-grey" disabled >Logga in för att lägga order</button>
-                    <router-link to="/orderconfirm" v-else class="btn btn-grey" v-on:click.native="orders" >  Lägg order </router-link>
+                    <button v-else class="btn btn-grey" v-on:click="orders" >  Lägg order </button>
                 </div>
             </div>
         </div>
