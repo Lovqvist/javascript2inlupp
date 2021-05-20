@@ -50,7 +50,7 @@
                     <ul v-if="loggedIn" class="dropdown-menu dropdown-menu-end border border-4 rounded" aria-labelledby="navbarDropdownMenuLink">
                         
                         <li><router-link class="dropdown-item" to="/orderhistory">Order historik</router-link></li>
-                        <li><button class="dropdown-item" to="/" v-on:click="handleLogout()">Logga ut</button></li>
+                        <li><button class="dropdown-item" @click="handleLogout()">Logga ut</button></li>
                     </ul>
                 </div>
                 
@@ -89,8 +89,6 @@ methods: {
     ...mapActions(['logout']),
     handleLogout() {
         this.logout()
-        
-
     }
 },
 computed: {
