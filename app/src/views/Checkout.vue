@@ -23,7 +23,7 @@
     
             <div class="d-flex justify-content-between align-items-center mt-4">
                 <div>
-                    <router-link to="/products" class="btn" data-abc="true"> <i class="fa fa-chevron-left"></i> Fortsätt handla</router-link>
+                    <router-link to="/" class="btn" data-abc="true"> <i class="fa fa-chevron-left"></i> Fortsätt handla</router-link>
                 </div>
                 <div >
                     <button v-if="cartItemCount < 1" class="btn btn-grey" disabled>Kundvagn tom </button>
@@ -55,7 +55,7 @@ export default {
           }
           console.log(order1)
           this.confirmOrder(order1)
-          setTimeout(this.cleanCartList, 2000)
+          setTimeout(this.cleanCartList, 1000)
           
       }
   }

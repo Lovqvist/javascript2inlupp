@@ -30,10 +30,10 @@
               <input type="password" id="password" class="form-control" v-model="user.password">
           </div>
 
-          <button class="btn btn-primary btn-block">Skapa konto</button>
+          <button class="btn btn-grey btn-block">Skapa konto</button>
 
           <div class="text-center">
-              <small>Konto sen tidigare? <router-link to="/login">Login</router-link> </small>
+              <small>Konto sen tidigare? <router-link to="/login" class="login-link">Login</router-link> </small>
           </div>
       </form>
   </div>
@@ -65,5 +65,9 @@ export default {
 </script>
 
 <style>
-
+.login-link {
+    color: rgba(182, 142, 173, 0.788);
+    text-decoration: bold;
+    
+}
 </style>

@@ -33,7 +33,10 @@
                     <ul class="dropdown-menu dropdown-menu-end shopping-cart" aria-labelledby="navbarDropdownMenuLink">
                         <Shopping-cart />
                     </ul>
-                    <a
+                    
+                    <i v-if="!loggedIn" ><router-link class="nav-link text-dark login-link" to="/login">Logga in</router-link></i>
+                    
+                    <a v-if="loggedIn"
                     class="text-dark nav-link dropdown-toggle"
                     href="#"
                     id="navbarDropdownMenuLink"
@@ -41,13 +44,13 @@
                     data-mdb-toggle="dropdown"
                     aria-expanded="false"
                     >   
-                        <i class="text-dark fas fa-user"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end border border-4 rounded" aria-labelledby="navbarDropdownMenuLink">
+                        <i v-if="loggedIn" class="text-dark fas fa-user"></i>
                         
-                        <li v-if="!loggedIn"><router-link class="dropdown-item" to="/login">Login</router-link></li>
-                        <li v-if="loggedIn"><router-link class="dropdown-item" to="/orderhistory">Order historik</router-link></li>
-                        <li v-if="loggedIn"><router-link class="dropdown-item" to="/" @click="logout()">Logga ut</router-link></li>
+                    </a>
+                    <ul v-if="loggedIn" class="dropdown-menu dropdown-menu-end border border-4 rounded" aria-labelledby="navbarDropdownMenuLink">
+                        
+                        <li><router-link class="dropdown-item" to="/orderhistory">Order historik</router-link></li>
+                        <li><button class="dropdown-item" to="/" v-on:click="handleLogout()">Logga ut</button></li>
                     </ul>
                 </div>
                 
@@ -83,7 +86,12 @@ components: {
     ShoppingCart 
 },
 methods: {
-    ...mapActions(['logout'])
+    ...mapActions(['logout']),
+    handleLogout() {
+        this.logout()
+        
+
+    }
 },
 computed: {
     ...mapGetters(['cartItemCount', 'loggedIn'])
@@ -93,9 +101,9 @@ computed: {
 </script>
  
 <style scoped>
-nav {
-    background-color:  rgba(182, 142, 173, 0.788);
-}
+    nav {
+        background-color:  rgba(182, 142, 173, 0.788);
+    }
     
     .navbar-brand {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -108,6 +116,10 @@ nav {
 
     .shopping-cart {
         min-width: 340px;
+    }
+
+    .a.hover {
+        background: rgba(182, 142, 173, 0.788);
     }
 
 @media (min-width: 992px) {

@@ -20,6 +20,7 @@ export default {
         },
         LOGOUT_USER: state => {
             state.loggedIn = false
+            state.user = null
         },
         SET_ERROR: (state, msg) => {
             state.error = msg
@@ -51,6 +52,7 @@ export default {
         },
         logout: ({commit}) => {
             commit('LOGOUT_USER')
+            router.push('/')
         }
     }
 }
