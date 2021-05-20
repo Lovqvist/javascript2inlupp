@@ -1,5 +1,5 @@
 <template>
-    <div class="products">
+    <div class="products ">
         <Product-card-deck />
     </div>
 </template>

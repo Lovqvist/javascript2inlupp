@@ -33,7 +33,7 @@
           <button class="btn btn-grey btn-block">Skapa konto</button>
 
           <div class="text-center">
-              <small>Konto sen tidigare? <router-link to="/login" class="login-link">Login</router-link> </small>
+              <small>Konto sen tidigare? <router-link to="/login" class="login-link">Logga in</router-link> </small>
           </div>
       </form>
   </div>

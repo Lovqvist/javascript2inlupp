@@ -37,15 +37,13 @@ export default {
     methods: {
         ...mapActions(['login']),
         onSub() {
-            if(this.email !== '' && this.password !== '') {
-                let user = {
-                    email: this.email,
-                    password: this.password
-                }
-
-                this.login(user)
-                console.log(user)
+            let user = {
+                email: this.email,
+                password: this.password
             }
+
+            this.login(user)
+            console.log(user)
         }
     }
 }

@@ -13,11 +13,11 @@
             <i class="fas fa-bars"></i>
             </button>
             
-            <router-link class="navbar-brand" to="/"><span>MySHOP</span></router-link>
+            <router-link class="navbar-brand " to="/"><span>MySHOP</span></router-link>
             
             
                 <!-- Dropdown -->
-                <div class=" navbar dropdown icon">
+                <div class=" navbar dropdown icon ">
                     <a
                     class="nav-link"
                     href="#"
