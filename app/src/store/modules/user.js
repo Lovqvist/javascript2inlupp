@@ -52,7 +52,8 @@ export default {
         },
         logout: ({commit}) => {
             commit('LOGOUT_USER')
-            router.push('/')
+            router.push('/login')
+            
         }
     }
 }
